@@ -1,4 +1,4 @@
-# - Reverse A Linked List  (Optimal Sol^)
+# - Reverse A Linked List (Optimal Sol^)
 
 class Node:
     def __init__(self, val):
@@ -20,38 +20,24 @@ class SLL:
             current.next = new_node
             
 class Solution:
-    class Node:
-        def __init__(self, val):
-            self.val = val
-            self.next = None
-
-class Solution:
     def reverse_list_optimal(self, head: Node) -> Node:
+        temp = head
         prev = None
-        curr = head
         
-        while curr:
-            next_node = curr.next  # Save the next node
-            curr.next = prev       # Flip the pointer (the actual reversal)
+        while temp:
+            front = temp.next    # 1. Save next node
+            temp.next = prev     # 2. Reverse current pointer
+            prev = temp          # 3. Move prev forward
+            temp = front         # 4. Move temp forward
             
-            # Move the markers forward
-            prev = curr
-            curr = next_node
-            
-        return prev  # prev becomes the new head
-    
+        return prev  # prev is the new head of the reversed list
+
 obj = SLL()
-for i in [10, 20, 30, 40, 50, 60]:
-    obj.Append(i)
+for _ in [1,2,3,4,5]:
+    obj.Append(_)
 
-sol = Solution()
-
-# FIX: Pass the head node and store the new head returned by the function
-new_head = sol.reverse_list_optimal(obj.head)
-
-# To see the output, we traverse starting from the new_head
-print("Reversed List Output:")
-temp = new_head
-while temp:
-    print(temp.val, end=" -> " if temp.next else "")
-    temp = temp.next
+test = Solution()
+curr = test.reverse_list_optimal(obj.head)
+while curr:
+    print(curr.val, end = " -> " if curr.next else "\n")
+    curr = curr.next

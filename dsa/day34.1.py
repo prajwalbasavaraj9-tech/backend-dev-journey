@@ -18,12 +18,6 @@ class SLL:
             while current.next:
                 current = current.next
             current.next = new_node
-            
-class Solution:
-    class Node:
-        def __init__(self, val):
-            self.val = val
-            self.next = None
 
 class Solution:
     def reverse_list_brute(self, head: Node) -> Node:
