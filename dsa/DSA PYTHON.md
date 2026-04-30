@@ -40,3 +40,4 @@
 | **🖥️Linked list + leet codes (medium) - ?**                                       |
 | - Middle of a Linked List (Tortoise hare method)                                  |
 | - Reverse A Linked List.                                                          |
+| - Linked List Cycle (leet code 141).                                              |
