@@ -7,7 +7,7 @@ class Node:
         
 class SLL:
     def __init__(self) -> None:
-        self.head = None
+        self.head = None  # declaration (self.head)
 
     def Append(self, data):
         new_node = Node(data)
@@ -40,7 +40,7 @@ class SLL:
             previous_node = None
             count = 0
             while current_node is not None and count < position:
-                previous_node =current_node
+                previous_node = current_node
                 current_node = current_node.next
                 count += 1
             previous_node.next = new_node
@@ -66,7 +66,7 @@ class SLL:
                     previous.next = current.next
                     return
                 else:
-                    print("Node Not Found!!!")
+                    print("val Not Found!!!")
 
 
 Nums_Dict = SLL()
@@ -86,3 +86,6 @@ Nums_Dict.Traverse()
 Nums_Dict.Delete(55)
 # Traverse
 Nums_Dict.Traverse()
+
+# Time Complexity (TC): O(n) # specified w.r.t each func
+# Space Complexity (SC): O(1)
