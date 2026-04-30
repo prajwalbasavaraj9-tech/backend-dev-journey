@@ -39,4 +39,4 @@
 | - Find minimum in rotated sorted array (leet code 153).                           |
 | **🖥️Linked list + leet codes (medium) - ?**                                       |
 | - Middle of a Linked List (Tortoise hare method)                                  |
-| - Reverse A Linked List (Brute Force Sol^)                                        |
+| - Reverse A Linked List.                                                          |
