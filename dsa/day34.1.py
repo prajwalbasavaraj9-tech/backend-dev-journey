@@ -1,4 +1,4 @@
-# - Reverse A Linked List  (Optimal Sol^)
+# - Reverse A Linked List  (Brute Force Sol^)
 
 class Node:
     def __init__(self, val):
@@ -26,19 +26,25 @@ class Solution:
             self.next = None
 
 class Solution:
-    def reverse_list_optimal(self, head: Node) -> Node:
-        prev = None
-        curr = head
+    def reverse_list_brute(self, head: Node) -> Node:
+        if not head:
+            return None
         
-        while curr:
-            next_node = curr.next  # Save the next node
-            curr.next = prev       # Flip the pointer (the actual reversal)
+        stack = []
+        temp = head
+        
+        # Pass 1: Push all values onto the stack
+        while temp:
+            stack.append(temp.val)
+            temp = temp.next
             
-            # Move the markers forward
-            prev = curr
-            curr = next_node
+        # Pass 2: Pop values back into the nodes
+        temp = head
+        while temp:
+            temp.val = stack.pop()
+            temp = temp.next
             
-        return prev  # prev becomes the new head
+        return head
     
 obj = SLL()
 for i in [10, 20, 30, 40, 50, 60]:
@@ -47,7 +53,7 @@ for i in [10, 20, 30, 40, 50, 60]:
 sol = Solution()
 
 # FIX: Pass the head node and store the new head returned by the function
-new_head = sol.reverse_list_optimal(obj.head)
+new_head = sol.reverse_list_brute(obj.head)
 
 # To see the output, we traverse starting from the new_head
 print("Reversed List Output:")
