@@ -36,3 +36,5 @@
 | - Count occurrences of a num in sorted array with duplicates.                     |
 | - Search in rotated sorted array (leet code 33).                                  |
 | - Search in rotated sorted array 2 (leet code 81).                                |
+| 💻 Linked list + leet codes (medium) - ?
+| - Middle of a Linked List (Tortoise hare method)
