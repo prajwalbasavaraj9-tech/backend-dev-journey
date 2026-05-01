@@ -41,3 +41,6 @@ curr = test.reverse_list_optimal(obj.head)
 while curr:
     print(curr.val, end = " -> " if curr.next else "\n")
     curr = curr.next
+
+# Time Complexity (TC): O(n)
+# Space Complexity (SC): O(1)

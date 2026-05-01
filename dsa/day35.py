@@ -63,3 +63,6 @@ test = Solution()
 res = test.hasCycle(obj.head)
 
 print(res)
+
+# Time Complexity (TC): O(n)
+# Space Complexity (SC): O(1)

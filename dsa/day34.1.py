@@ -55,3 +55,6 @@ temp = new_head
 while temp:
     print(temp.val, end=" -> " if temp.next else "")
     temp = temp.next
+    
+# Time Complexity (TC): O(n)
+# Space Complexity (SC): O(n)
