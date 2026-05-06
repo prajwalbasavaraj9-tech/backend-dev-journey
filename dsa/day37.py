@@ -1,4 +1,4 @@
-# - Lenght of Loop in LL.
+# - Lenght of Loop in LL (Optimized Sol^)
 
 class Node:
     def __init__(self, val):
@@ -14,42 +14,49 @@ class SLL:
         if not self.head:
             self.head = new_node
         else:
-            current = self.head 
+            current = self.head
             while current.next:
                 current = current.next
             current.next = new_node
             
-    def lenght_loop(self):
-        temp = self.head
-        total = 0
-        freq = dict()
+    def length_loop_optimized(self):
+        slow = self.head
+        fast = self.head
         
-        while temp:
-            # We check if the Node object (memory address) exists in freq
-            if temp in freq:
-                return total - freq[temp]
-            freq[temp] = total
-            total += 1
-            temp = temp.next
-        return 0
+        # Step 1: Detect if a cycle exists
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            
+            # If pointers meet, there is a loop
+            if slow == fast:
+                # Step 2: Count nodes in the loop
+                count = 1
+                slow = slow.next # Move slow forward once to start counting
+                while slow != fast:
+                    slow = slow.next
+                    count += 1
+                return count
+        
+        return 0 # No loop found
 
-# --- Execution and Testing ---
+# --- Testing the Logic ---
 obj = SLL()
-# Adding unique nodes
-vals = [5, 9, 1, 7, 6]
-for v in vals:
-    obj.append(v)
+for i in [1, 2, 3, 4, 5, 6]:
+    obj.append(i)
 
-# To make the code return something other than 0, we MUST create a cycle manually:
-# Let's link the last node (6) back to the node with value (9)
+# Manually creating a loop for testing:
+# Link node '6' back to node '3'
+# List: 1 -> 2 -> (3) -> 4 -> 5 -> 6 -> (back to 3)
 last_node = obj.head
 while last_node.next:
     last_node = last_node.next
 
-cycle_entry = obj.head.next # This is the node with value 9
-last_node.next = cycle_entry # The loop is now: 5 -> 9 -> 1 -> 7 -> 6 -> (back to 9)
+loop_entry = obj.head.next.next # This is node 3
+last_node.next = loop_entry
 
-print(f"Loop length: {obj.lenght_loop()}")
+# Calculate length
+print(f"Loop length is: {obj.length_loop_optimized()}")
 
 # Time Complexity (TC): O(n)
-# Space Complexity (SC): O(n)
+# Space Complexity (SC): O(1)
