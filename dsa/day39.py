@@ -1,4 +1,4 @@
-# - Remove N^th node from end of list (Brute Force).
+# - Remove N^th node from end of list (Optimal Sol^).
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -6,56 +6,48 @@ class ListNode:
         self.next = next
 
 def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
-    # 1. Calculate the total length of the list
-    length = 0
-    temp = head
-    while temp:
-        length += 1
-        temp = temp.next
+    # Initialize both pointers at the head
+    slow = fast = head
     
-    # 2. Handle the edge case: Removing the head node
-    # If length == n, the node to remove is the head itself
-    if length == n:
+    # 1. Move fast pointer 'n' steps ahead
+    for _ in range(n):
+        fast = fast.next
+        
+    # 2. If fast is None, we need to remove the head node
+    if not fast:
         return head.next
-    
-    # 3. Find the position to stop (the node BEFORE the one to be deleted)
-    position_to_stop = length - n
-    temp = head
-    count = 1
-    
-    while count < position_to_stop:
-        temp = temp.next
-        count += 1
-    
-    # 4. Delete the node by skipping it
-    # temp.next is the node to be deleted
-    temp.next = temp.next.next
+        
+    # 3. Move both pointers until fast reaches the last node
+    # Now they move at the same speed, maintaining the 'n' gap
+    while fast.next:
+        slow = slow.next
+        fast = fast.next
+        
+    # 4. 'slow' is now at the node BEFORE the one to be deleted
+    slow.next = slow.next.next
     
     return head
 
-# Create the nodes
-node7 = ListNode(6)
-node6 = ListNode(8, node7)
-node5 = ListNode(1, node6)
-node4 = ListNode(7, node5)
-node3 = ListNode(4, node4)
-node2 = ListNode(3, node3)
-head = ListNode(1, node2)
+# Create the nodes: 1 -> 3 -> 4 -> 7 -> 1 -> 2 -> 6
+head = ListNode(1)
+head.next = ListNode(3)
+head.next.next = ListNode(4)
+head.next.next.next = ListNode(7)
+head.next.next.next.next = ListNode(1)
+head.next.next.next.next.next = ListNode(2)
+head.next.next.next.next.next.next = ListNode(6)
 
-# List looks like: 1 -> 3 -> 4 -> 7 -> 1 -> 8 -> 6 -> None
-
-n = 2
-new_head = removeNthFromEnd(head, n)
+# n=2 means the second node from the end (which is '2')
+new_head = removeNthFromEnd(head, 3)
 
 def print_list(node):
-    elements = []
-    while node:
-        elements.append(str(node.val))
-        node = node.next
-    print(" -> ".join(elements) + " -> None")
+    curr = node
+    while curr:
+        print(curr.val, end=" -> " if curr.next else " -> None\n")
+        curr = curr.next
 
 print_list(new_head)
-# Output: 1 -> 3 -> 4 -> 7 -> 1 -> 6 -> None
+# Expected Output: 1 -> 3 -> 4 -> 7 -> 1 -> 6 -> None
 
-# Time Complexity (TC): O(L) 2 Passes
+# Time Complexity (TC): O(L) {single pass + two pointer approach}
 # Space Complexity (SC): O(1)
