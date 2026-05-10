@@ -58,4 +58,4 @@ print_list(new_head)
 # Output: 1 -> 3 -> 4 -> 7 -> 1 -> 6 -> None
 
 # Time Complexity (TC): O(n)
-# Space Complexity (SC): O(n)
+# Space Complexity (SC): O(1)
