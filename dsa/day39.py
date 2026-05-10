@@ -57,5 +57,5 @@ def print_list(node):
 print_list(new_head)
 # Output: 1 -> 3 -> 4 -> 7 -> 1 -> 6 -> None
 
-# Time Complexity (TC): O(n)
+# Time Complexity (TC): O(L) 2 Passes
 # Space Complexity (SC): O(1)
