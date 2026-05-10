@@ -43,3 +43,5 @@
 | - Linked List Cycle (leet code 141).                                              |
 | - Linked List Cycle 2 (leet code 142).                                            |
 | - Lenght of Loop in LL.                                                           |
+| - Segrregate odd \& even nodes in LL (leet code 328).                             |
+| - Remove N^th node from end of list (B \& O).                                     |
