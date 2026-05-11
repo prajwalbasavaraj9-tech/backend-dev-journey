@@ -51,3 +51,4 @@
 |- append only with head, |
 |- append with head \& Tail, |                                                     |
 |- Insert in between **,|
+|- Traversal Operations,|
