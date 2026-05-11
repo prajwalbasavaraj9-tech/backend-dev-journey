@@ -50,3 +50,4 @@
 | - insert at head,                                                                 |
 |- append only with head, |
 |- append with head \& Tail, |                                                     |
+|- Insert in between **,|
