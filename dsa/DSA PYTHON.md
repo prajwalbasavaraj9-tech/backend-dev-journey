@@ -45,3 +45,8 @@
 | - Lenght of Loop in LL.                                                           |
 | - Segrregate odd \& even nodes in LL (leet code 328).                             |
 | - Remove N^th node from end of list (B \& O).                                     |
+|                                                                                   |
+| **🖥️ Doubly Linked list -**                                                       |
+| - insert at head,                                                                 |
+|- append only with head, |
+|- append with head \& Tail, |                                                     |
